@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FICTICIA_OS v2.5 — punk terminal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="crt">
+
+<div class="hud">
+  <div class="logo-mini">▓ FICTICIA_OS v2.5</div>
+  <div class="stat">HP <b>100/100</b></div>
+  <div class="bar"><i style="width:82%"></i></div>
+  <div class="stat">RUIDO <b id="hud-score">LVL 90</b></div>
+  <div class="stat">TRACK <b id="hud-track">01/10</b> <span class="blink grn">●REC</span></div>
+</div>
+
+<div class="wrap">
+  <!-- TERMINAL OPENCODE -->
+  <div class="term">
+    <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>ficticia@local: ~/demo-sucia — opencode + tty</span></div>
+    <div class="term-screen" id="screen" style="height:auto;max-height:none"></div>
+    <div class="hint">■ terminal de solo lectura — hacé click en un track para reproducir ▶ · <b>sin input</b></div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="side">
+    <div class="card">
+      <header>◉ LIVE — EL LOCAL, 02:14 AM</header>
+      <img src="assets/img/cyber_titiretero.png" alt="cyber titiretero" loading="lazy">
+      <div class="cap"><b>FIG.01 — cyber titiretero.</b> hilos verdes, control total. <span class="grn">no hay photoshop, hay sudor.</span></div>
+    </div>
+
+    <div class="winamp" id="winamp">
+      <div class="wa-titlebar"><span class="wa-logo">⛧</span><span class="wa-t">Winamp — FICTICIA · Ya está pasando! · 10 tracks</span><div class="wa-wbtns"><button title="shade">_</button><button title="min">–</button><button title="close">×</button></div></div>
+      <div class="wa-main">
+        <div class="wa-display">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div class="wa-nums"><span id="lcd-c">0:00</span><span id="lcd-d">2:40</span></div>
+            <div class="wa-flags"><span class="kbps">128kbps</span><span class="led" id="led-st">STEREO</span><span class="led off" id="led-mo">MONO</span></div>
+          </div>
+          <div class="wa-track"><span id="lcd-t">01. TECNO OLI GARCAS *** FICTICIA — YA ESTÁ PASANDO! ***</span></div>
+          <div class="wa-vis"><canvas id="wa-spec" width="150" height="38"></canvas><canvas id="wa-osc" width="72" height="38"></canvas></div>
+        </div>
+        <div class="wa-side">
+          <label>VOL</label><input type="range" id="wa-vol" min="0" max="100" value="80">
+          <label>BAL</label><input type="range" id="wa-bal" min="0" max="100" value="50">
+          <div class="wa-eqmini" id="wa-eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="wa-seek prog" id="prog"><i id="fill"></i></div>
+      <div class="wa-btns dkeys">
+        <button id="b-prev" title="prev">⏮</button><button id="b-play" class="main" title="play">▶</button><button id="b-pause" title="pause">⏸</button><button id="b-stop" title="stop">■</button><button id="b-next" title="next">⏭</button><button id="b-eject" title="eject">⏏</button>
+      </div>
+      <div class="wa-plbar"><span class="dot2"></span><span id="wa-pl-t">01/10 · A1 — TECNO OLI GARCAS</span><marquee>FICTICIA — YA ESTÁ PASANDO! — punk · ruido · verdad — it really whips the llama's ass</marquee></div>
+      <audio id="au" preload="metadata"></audio>
+    </div>
+
+    <div class="card">
+      <header>◉ FLYER / ENSAYO</header>
+      <img src="assets/img/cyberpunk%20de%20hilos%20verdes.png" alt="cyberpunk de hilos verdes" loading="lazy">
+      <div class="cap"><b>FIG.02 — hilos verdes.</b> ampli prestado, batería rota. igual se graba. <a href="https://ficticia.bandcamp.com" target="_blank">bandcamp ↗</a></div>
+    </div>
+
+    <div class="card">
+      <header>◉ PORTADA — YA ESTÁ PASANDO!</header>
+      <img src="assets/img/ficticia.png" alt="portada ficticia - ya está pasando" loading="lazy">
+      <div class="cap"><b>FIG.03 — ficticia.</b> arte oficial del disco <span class="grn">“Ya está pasando!” — 10 tracks.</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>FICTICIA © 2025 · NO HAY DERECHOS · COPIÁ Y DESTRUÍ · <span class="grn">press START</span> · hemiola__terminal_build</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
