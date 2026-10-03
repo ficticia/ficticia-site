@@ -23,13 +23,13 @@
   <!-- TERMINAL OPENCODE -->
   <div class="term">
     <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>ficticia@local: ~/demo-sucia — opencode + tty</span></div>
-    <div class="term-screen" id="screen" style="height:auto;max-height:none"></div>
+    <div class="term-screen" id="screen"></div>
     <div class="hint">■ terminal de solo lectura — hacé click en un track para reproducir ▶ · <b>sin input</b></div>
   </div>
 
   <!-- SIDEBAR -->
   <div class="side">
-    <div class="card">
+    <div class="card card-portada">
       <header>◉ PORTADA — YA ESTÁ PASANDO!</header>
       <img src="assets/img/ficticia.png" alt="portada ficticia - ya está pasando" loading="lazy">
       <div class="cap"><b>FIG.03 — ficticia.</b> arte oficial del disco <span class="grn">“Ya está pasando!” — 10 tracks.</span></div>
@@ -60,16 +60,59 @@
       <audio id="au" preload="metadata"></audio>
     </div>
 
-    <div class="card">
+    <div class="card card-flyer">
       <header>◉ FLYER / ENSAYO</header>
       <img src="assets/img/cyberpunk%20de%20hilos%20verdes.png" alt="cyberpunk de hilos verdes" loading="lazy">
       <div class="cap"><b>FIG.02 — hilos verdes.</b> ampli prestado, batería rota. igual se graba. <a href="https://ficticia.bandcamp.com" target="_blank">bandcamp ↗</a></div>
     </div>
+  </div>
+</div>
 
-    <div class="card">
-      <header>◉ LIVE — EL LOCAL, 02:14 AM</header>
-      <img src="assets/img/cyber_titiretero.png" alt="cyber titiretero" loading="lazy">
-      <div class="cap"><b>FIG.01 — cyber titiretero.</b> hilos verdes, control total. <span class="grn">no hay photoshop, hay sudor.</span></div>
+<!-- PANFLETOS / BLOG — abajo, navegable, listo para crecer -->
+<section class="blog-wrap" id="panfletos">
+  <div class="blog-head">
+    <h2><span class="grn">./panfletos</span> — el blog</h2>
+    <div class="blog-nav">
+      <button id="blog-prev" aria-label="anterior">←</button>
+      <button id="blog-next" aria-label="siguiente">→</button>
+    </div>
+  </div>
+  <p class="dim blog-sub">$ cat ./panfletos/*.txt — 3 archivos · se lee abajo, sin ensuciar el player</p>
+  <div class="blog-grid" id="blog-grid">
+    <article class="post">
+      <div class="dim post-file">── panfleto_01.txt ──</div>
+      <h3>▓ EL SISTEMA TE QUIERE DÓCIL</h3>
+      <time>[15/03/2025]</time>
+      <p>$ Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.</p>
+      <div class="dim post-eof">── EOF · <button class="read-more" data-pan="0">leer →</button> ──</div>
+    </article>
+    <article class="post">
+      <div class="dim post-file">── panfleto_02.txt ──</div>
+      <h3>▓ BARRICADAS DE SONIDO</h3>
+      <time>[02/02/2025]</time>
+      <p>$ La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.</p>
+      <div class="dim post-eof">── EOF · <button class="read-more" data-pan="1">leer →</button> ──</div>
+    </article>
+    <article class="post">
+      <div class="dim post-file">── panfleto_03.txt ──</div>
+      <h3>▓ NO HAY PAN SIN LIBERTAD</h3>
+      <time>[10/01/2025]</time>
+      <p>$ Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.</p>
+      <div class="dim post-eof">── EOF · <button class="read-more" data-pan="2">leer →</button> ──</div>
+    </article>
+  </div>
+</section>
+
+<!-- MODAL PANFLETO COMPLETO -->
+<div class="modal-overlay" id="pan-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pan-title">
+    <div class="modal-bar"><span id="pan-file">── panfleto_01.txt ──</span><button id="pan-close" aria-label="cerrar">×</button></div>
+    <h3 id="pan-title">▓ título</h3>
+    <time id="pan-date">[fecha]</time>
+    <div class="modal-body" id="pan-body"></div>
+    <div class="modal-foot">
+      <button id="pan-prev">← anterior</button>
+      <button id="pan-next">siguiente →</button>
     </div>
   </div>
 </div>

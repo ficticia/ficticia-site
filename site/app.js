@@ -13,9 +13,12 @@ const tracks = [
  {t:"TODAVÍA ESTAMOS ACÁ",d:152,dl:"2:32",side:"B5",src:BASE+"10-todavia_estamos_aca.mp3"},
 ];
 const pans = [
- {t:"EL SISTEMA TE QUIERE DÓCIL",f:"15/03/2025",b:"Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso."},
- {t:"BARRICADAS DE SONIDO",f:"02/02/2025",b:"La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov."},
- {t:"NO HAY PAN SIN LIBERTAD",f:"10/01/2025",b:"Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador."},
+ {t:"EL SISTEMA TE QUIERE DÓCIL",f:"15/03/2025",b:"Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.",
+  full:["Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.","Te venden calma en cuotas: pastilla, serie, delivery. Mientras tanto te suben el alquiler, te precarizan el laburo y te piden que sonrías para la foto.","Este panfleto es un recordatorio pegado con engrudo: apagá el scroll media hora, juntate con tu gente, hacé ruido. Un ensayo en un galpón vale más que mil discursos.","Si llegaste hasta acá, ya sos parte. Traé tu rabia el sábado. Entrada libre, salida con ideas."]},
+ {t:"BARRICADAS DE SONIDO",f:"02/02/2025",b:"La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.",
+  full:["La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.","Nos corrieron de la plaza, del centro, del streaming. Nos quedamos con lo único que no nos pueden expropiar: el volumen.","Barricada de sonido significa: batería rota pero fuerte, bajo prestado pero al frente, grito colectivo aunque desafine. El error también es mensaje.","Manual rápido: 1) vení temprano, 2) cuidá a quien poguea al lado, 3) si cae uno, lo levantamos. Eso es todo lo que el sistema no entiende."]},
+ {t:"NO HAY PAN SIN LIBERTAD",f:"10/01/2025",b:"Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.",
+  full:["Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.","Ajuste, tarifazo, changa que no alcanza. Nos hablan de esfuerzo mientras fugan guita. Nosotros hablamos de olla popular y amplificador compartido.","No hay pan sin libertad y no hay libertad sin organización. Por eso cada fecha nuestra junta alimentos, imprime panfletos, pasa el alias para la furgoneta.","Caé con algo para compartir —comida, zapatillas, un cable— y te llevás el doble en canciones. Así funciona ficticia."]},
 ];
 let idx=0, sec=0, playing=false, timer=null;
 const $=id=>document.getElementById(id);
@@ -86,8 +89,8 @@ function listTracks(){
   renderPlayer();
 }
 function listPans(){
-  let h=`<div class="dim">$ cat ./panfletos/*.txt</div><div class="amb">== ./panfletos — 3 archivos ==</div>`;
-  pans.forEach((p,i)=>{h+=`<div style="border:1px dashed var(--line);padding:.6rem;margin:.45rem 0"><div class="dim">── panfleto_0${i+1}.txt ──────────────</div><div class="grn">▓ ${p.t}</div><div class="dim">[${p.f}]</div><div class="bone">$ ${p.b}</div><div class="dim">── EOF ─</div></div>`});
+  let h=`<div class="dim">$ cat ./panfletos/*.txt</div><div class="amb">== ./panfletos — 3 archivos abajo en el blog ==</div>`;
+  h+=`<div class="dim">los panfletos ahora viven en <a href="#panfletos" style="color:var(--grn)">#panfletos ↓</a> para leer cómodo en móvil.</div>`;
   print(h);
 }
 // boot — todo escrito directo, sin input
@@ -113,3 +116,31 @@ $('prog').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();const ns=M
 const vv=$('wa-vol'); if(vv) vv.oninput=()=>{au.volume=vv.value/100};
 const vb=$('wa-bal'); if(vb) vb.oninput=()=>{try{au.stereoPanner?au.stereoPanner=null:null}catch(e){} const p=(vb.value-50)/50; if(au.setSinkId===undefined){} try{ const ctx=au._ctx||(au._ctx=new (window.AudioContext||window.webkitAudioContext)()); }catch(e){} const st=$('led-st'),mo=$('led-mo'); if(st&&mo){ const mono=Math.abs(p)<0.05; st.classList.toggle('off',mono); mo.classList.toggle('off',!mono);} };
 load(0,false); renderPlayer();
+// blog nav ← → (scroll horizontal en móvil)
+// modal panfleto completo
+let panIdx=0;
+function openPan(i){
+  panIdx=(i+pans.length)%pans.length;
+  const p=pans[panIdx];
+  $('pan-file').textContent='── panfleto_0'+(panIdx+1)+'.txt ──';
+  $('pan-title').textContent='▓ '+p.t;
+  $('pan-date').textContent='['+p.f+']';
+  $('pan-body').innerHTML=p.full.map(x=>'<p>$ '+x+'</p>').join('');
+  $('pan-modal').hidden=false;
+  document.body.style.overflow='hidden';
+}
+function closePan(){$('pan-modal').hidden=true;document.body.style.overflow='';}
+document.querySelectorAll('.read-more').forEach(b=>b.onclick=()=>openPan(+b.dataset.pan));
+const _pc=$('pan-close'); if(_pc)_pc.onclick=closePan;
+const _pp=$('pan-prev'); if(_pp)_pp.onclick=()=>openPan(panIdx-1);
+const _pn=$('pan-next'); if(_pn)_pn.onclick=()=>openPan(panIdx+1);
+const _ov=$('pan-modal');
+if(_ov)_ov.addEventListener('click',e=>{if(e.target===_ov)closePan()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('pan-modal').hidden)closePan()});
+const _grid=document.getElementById('blog-grid');
+const _bp=document.getElementById('blog-prev'), _bn=document.getElementById('blog-next');
+if(_grid){
+  const step=()=>{const c=_grid.querySelector('.post');return c?c.offsetWidth+16:300};
+  if(_bp)_bp.onclick=()=>_grid.scrollBy({left:-step(),behavior:'smooth'});
+  if(_bn)_bn.onclick=()=>_grid.scrollBy({left:step(),behavior:'smooth'});
+}
