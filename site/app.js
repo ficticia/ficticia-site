@@ -13,11 +13,11 @@ const tracks = [
  {t:"TODAVÍA ESTAMOS ACÁ",d:152,dl:"2:32",side:"B5",src:BASE+"10-todavia_estamos_aca.mp3"},
 ];
 const pans = [
- {t:"EL SISTEMA TE QUIERE DÓCIL",f:"15/03/2025",b:"Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.",
+ {t:"EL SISTEMA TE QUIERE DÓCIL",f:"15/03/2026",b:"Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.",
   full:["Nos quieren callados, consumiendo, mirando pantallas mientras el mundo arde. Pero el punk no pide permiso.","Te venden calma en cuotas: pastilla, serie, delivery. Mientras tanto te suben el alquiler, te precarizan el laburo y te piden que sonrías para la foto.","Este panfleto es un recordatorio pegado con engrudo: apagá el scroll media hora, juntate con tu gente, hacé ruido. Un ensayo en un galpón vale más que mil discursos.","Si llegaste hasta acá, ya sos parte. Traé tu rabia el sábado. Entrada libre, salida con ideas."]},
- {t:"BARRICADAS DE SONIDO",f:"02/02/2025",b:"La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.",
+ {t:"BARRICADAS DE SONIDO",f:"02/02/2026",b:"La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.",
   full:["La policía tiene porras, nosotros tenemos distorsión. Cada canción es un cóctel molotov.","Nos corrieron de la plaza, del centro, del streaming. Nos quedamos con lo único que no nos pueden expropiar: el volumen.","Barricada de sonido significa: batería rota pero fuerte, bajo prestado pero al frente, grito colectivo aunque desafine. El error también es mensaje.","Manual rápido: 1) vení temprano, 2) cuidá a quien poguea al lado, 3) si cae uno, lo levantamos. Eso es todo lo que el sistema no entiende."]},
- {t:"NO HAY PAN SIN LIBERTAD",f:"10/01/2025",b:"Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.",
+ {t:"NO HAY PAN SIN LIBERTAD",f:"10/01/2026",b:"Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.",
   full:["Nos roban el pan, pero no el ruido. Traé tu rabia, que acá sobra amplificador.","Ajuste, tarifazo, changa que no alcanza. Nos hablan de esfuerzo mientras fugan guita. Nosotros hablamos de olla popular y amplificador compartido.","No hay pan sin libertad y no hay libertad sin organización. Por eso cada fecha nuestra junta alimentos, imprime panfletos, pasa el alias para la furgoneta.","Caé con algo para compartir —comida, zapatillas, un cable— y te llevás el doble en canciones. Así funciona ficticia."]},
 ];
 let idx=0, sec=0, playing=false, timer=null;
@@ -94,8 +94,8 @@ function listPans(){
   print(h);
 }
 // boot — todo escrito directo, sin input
-print(`<div class="ascii"> _____ ___ ____ _____ ___ ____ ___    _    \n|  ___|_ _/ ___|_   _|_ _/ ___|_ _|  / \\   \n| |_   | || |     | |  | || |    | | / _ \\  \n|  _|  | || |___  | |  | || |___ | |/ ___ \\ \n|_|   |___\\____| |_| |___\\____|___/_/   \\_\\\n</div><div class="ascii-fallback">FICTICIA<span>_OS</span></div><div class="dim">punk · ruido · verdad — “Ya está pasando!” 2025</div>`);
-print(`<div class="dim">FICTICIA_OS v2.5 — kernel ruido cargado… <span class="ok">OK</span><br>mount /dev/cassette… <span class="ok">OK</span><br>audio: 10 pistas en assets/audio/Ya esta pasando!/ … <span class="ok">OK</span></div>`);
+print(`<div class="ascii"> _____ ___ ____ _____ ___ ____ ___    _    \n|  ___|_ _/ ___|_   _|_ _/ ___|_ _|  / \\   \n| |_   | || |     | |  | || |    | | / _ \\  \n|  _|  | || |___  | |  | || |___ | |/ ___ \\ \n|_|   |___\\____| |_| |___\\____|___/_/   \\_\\\n</div><div class="ascii-fallback">FICTICIA<span>_OS</span></div><div class="dim">punk · ruido · verdad — “Ya está pasando!” 2026</div>`);
+print(`<div class="dim">FICTICIA_OS v1.0 — kernel ruido cargado… <span class="ok">OK</span><br>mount /dev/cassette… <span class="ok">OK</span><br>audio: 10 pistas en assets/audio/Ya esta pasando!/ … <span class="ok">OK</span></div>`);
 print(`<div class="dim">$ ls ./temas/ ./assets/audio/"Ya esta pasando!"/</div>`);
 listTracks();
 listPans();
