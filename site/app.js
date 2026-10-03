@@ -129,14 +129,14 @@ function openPan(i){
   $('pan-modal').hidden=false;
   document.body.style.overflow='hidden';
 }
-function closePan(){$('pan-modal').hidden=true;document.body.style.overflow='';}
+function closePan(){const m=$('pan-modal'); if(m)m.hidden=true;document.body.style.overflow='';}
 document.querySelectorAll('.read-more').forEach(b=>b.onclick=()=>openPan(+b.dataset.pan));
 const _pc=$('pan-close'); if(_pc)_pc.onclick=closePan;
 const _pp=$('pan-prev'); if(_pp)_pp.onclick=()=>openPan(panIdx-1);
 const _pn=$('pan-next'); if(_pn)_pn.onclick=()=>openPan(panIdx+1);
 const _ov=$('pan-modal');
 if(_ov)_ov.addEventListener('click',e=>{if(e.target===_ov)closePan()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('pan-modal').hidden)closePan()});
+document.addEventListener('keydown',e=>{const m=$('pan-modal'); if(e.key==='Escape'&&m&&!m.hidden)closePan()});
 const _grid=document.getElementById('blog-grid');
 const _bp=document.getElementById('blog-prev'), _bn=document.getElementById('blog-next');
 if(_grid){

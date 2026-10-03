@@ -20,50 +20,41 @@
 </div>
 
 <div class="wrap">
-  <!-- TERMINAL OPENCODE -->
+  <!-- PORTADA ARRIBA FULL-WIDTH -->
+  <div class="card card-portada">
+    <header>◉ PORTADA — YA ESTÁ PASANDO!</header>
+    <img src="assets/img/ficticia.png" alt="portada ficticia - ya está pasando" loading="lazy">
+    <div class="cap"><b>FIG.03 — ficticia.</b> arte oficial del disco <span class="grn">“Ya está pasando!” — 10 tracks.</span></div>
+  </div>
+
+  <!-- LISTA / TERMINAL -->
   <div class="term">
     <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span>ficticia@local: ~/demo-sucia — opencode + tty</span></div>
     <div class="term-screen" id="screen"></div>
     <div class="hint">■ terminal de solo lectura — hacé click en un track para reproducir ▶ · <b>sin input</b></div>
   </div>
 
-  <!-- SIDEBAR -->
-  <div class="side">
-    <div class="card card-portada">
-      <header>◉ PORTADA — YA ESTÁ PASANDO!</header>
-      <img src="assets/img/ficticia.png" alt="portada ficticia - ya está pasando" loading="lazy">
-      <div class="cap"><b>FIG.03 — ficticia.</b> arte oficial del disco <span class="grn">“Ya está pasando!” — 10 tracks.</span></div>
-    </div>
-
-    <div class="winamp" id="winamp">
-      <div class="wa-titlebar"><span class="wa-logo">⛧</span><span class="wa-t">FICTICIA · Ya está pasando! · 10 tracks</span><div class="wa-wbtns"><button title="shade">_</button><button title="min">–</button><button title="close">×</button></div></div>
-      <div class="wa-main">
-        <div class="wa-display">
-          <div style="display:flex;justify-content:space-between;align-items:baseline">
-            <div class="wa-nums"><span id="lcd-c">0:00</span><span id="lcd-d">2:40</span></div>
-            <div class="wa-flags"><span class="kbps">128kbps</span><span class="led" id="led-st">STEREO</span><span class="led off" id="led-mo">MONO</span></div>
-          </div>
-          <div class="wa-track"><span id="lcd-t">01. TECNO OLI GARCAS *** FICTICIA — YA ESTÁ PASANDO! ***</span></div>
-          <div class="wa-vis"><canvas id="wa-spec" width="150" height="38"></canvas><canvas id="wa-osc" width="72" height="38"></canvas></div>
-        </div>
-        <div class="wa-side">
-          <label>VOL</label><input type="range" id="wa-vol" min="0" max="100" value="80">
-          <label>BAL</label><input type="range" id="wa-bal" min="0" max="100" value="50">
-          <div class="wa-eqmini" id="wa-eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        </div>
+  <!-- REPRODUCTOR ESTILO SPOTIFY, SKIN RETRO -->
+  <div class="player" id="winamp">
+    <div class="pl-seek prog" id="prog"><i id="fill"></i></div>
+    <div class="pl-row">
+      <div class="pl-info">
+        <span class="pl-title" id="lcd-t">01. TECNO OLI GARCAS</span>
+        <span class="pl-sub"><span id="wa-pl-t">01/10 · A1 — TECNO OLI GARCAS</span> · <span><span id="lcd-c">0:00</span> / <span id="lcd-d">2:40</span></span></span>
       </div>
-      <div class="wa-seek prog" id="prog"><i id="fill"></i></div>
-      <div class="wa-btns dkeys">
-        <button id="b-prev" title="prev">⏮</button><button id="b-play" class="main" title="play">▶</button><button id="b-pause" title="pause">⏸</button><button id="b-stop" title="stop">■</button><button id="b-next" title="next">⏭</button><button id="b-eject" title="eject">⏏</button>
+      <div class="wa-btns">
+        <button id="b-prev" title="prev">⏮</button><button id="b-play" class="main" title="play">▶</button><button id="b-pause" title="pause">⏸</button><button id="b-stop" title="stop">■</button><button id="b-next" title="next">⏭</button>
       </div>
-      <div class="wa-plbar"><span class="dot2"></span><span id="wa-pl-t">01/10 · A1 — TECNO OLI GARCAS</span><marquee>FICTICIA — YA ESTÁ PASANDO! — punk · ruido · verdad — 10 tracks</marquee></div>
-      <audio id="au" preload="metadata"></audio>
+      <div class="pl-vol">
+        <label for="wa-vol">VOL</label><input type="range" id="wa-vol" min="0" max="100" value="80">
+      </div>
     </div>
-
+    <audio id="au" preload="metadata"></audio>
   </div>
+
 </div>
 
-<!-- PANFLETOS / BLOG — abajo, navegable, listo para crecer -->
+<!-- TODO v2: PANFLETOS ocultos para próxima versión
 <section class="blog-wrap" id="panfletos">
   <div class="blog-head">
     <h2><span class="grn">./panfletos</span> — el blog</h2>
@@ -98,7 +89,7 @@
   </div>
 </section>
 
-<!-- MODAL PANFLETO COMPLETO -->
+MODAL PANFLETO COMPLETO
 <div class="modal-overlay" id="pan-modal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pan-title">
     <div class="modal-bar"><span id="pan-file">── panfleto_01.txt ──</span><button id="pan-close" aria-label="cerrar">×</button></div>
@@ -111,6 +102,7 @@
     </div>
   </div>
 </div>
+FIN TODO v2 -->
 
 <footer>FICTICIA © 2025 · NO HAY DERECHOS · COPIÁ Y DESTRUÍ · <span class="grn">press START</span> · hemiola__terminal_build</footer>
 
